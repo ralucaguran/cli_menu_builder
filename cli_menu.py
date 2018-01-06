@@ -14,9 +14,14 @@ def build_menu_from_dict(dictionary, menu, actions_module):
         else:
             menu.add(Leaf(k,v,actions_module))
 
+def print_usage_and_exit():
+    print 'Usage: {0} <json menu> <handlers module>\n'\
+            'e.g. {0} example/animals.json example.animals_handlers'.format(sys.argv[0])
+    sys.exit(1)
+
 def main():
-    if len(sys.argv) < 3:
-        sys.exit(1)
+    if len(sys.argv) != 3:
+        print_usage_and_exit()
 
     in_json = sys.argv[1]
     try:
