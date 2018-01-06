@@ -1,0 +1,13 @@
+{
+    "wild": {
+        "lion": "roar",
+        "owl": {
+            "white": "buh",
+            "grey": "buhuhu"
+        }
+    },
+    "domestic": {
+        "cow": "moo",
+        "rooster": "kikeriki"
+    }
+}
