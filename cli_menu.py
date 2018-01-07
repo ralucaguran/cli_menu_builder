@@ -35,7 +35,7 @@ def main():
     menu = Composite()
     build_menu_from_dict(animals_dict, menu, actions_module)
     while True:
-        menu.print_children()
+        menu.show()
         try:
             choice = input('Select choice:')
         except SyntaxError as e:
