@@ -1,5 +1,4 @@
 import sys
-import importlib
 
 class Component(object):
     def __init__(self, text=''):
@@ -11,8 +10,8 @@ class Component(object):
     def do(self):
         pass
 
-    def show(self, num_indents=-1):
-        print '{0}{1}'.format(num_indents*'  ', self)
+    def show(self, idx=0, num_indents=-1):
+        print '{}{}.{}'.format(num_indents*'  ', idx, self) if idx != 0 else ''
 
 class Composite(Component):
     def __init__(self, text=''):
@@ -28,10 +27,10 @@ class Composite(Component):
             child = child._children[int(ch)-1]
         return child
 
-    def show(self, num_indents=-1):
-        super(Composite,self).show(num_indents)
-        for child in self._children:
-            child.show(num_indents+1)
+    def show(self, idx=0, num_indents=-1):
+        super(Composite,self).show(idx,num_indents)
+        for pos in range(len(self._children)):
+            self._children[pos].show(pos+1,num_indents+1)
 
 class Leaf(Component):
     def __init__(self, text, action_handler, actions_module):
@@ -41,5 +40,4 @@ class Leaf(Component):
 
     def do(self):
         getattr(self.actions_module, self.action_handler)()
-
 
