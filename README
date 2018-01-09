@@ -1,0 +1,7 @@
+A tiny framework for 
+- building CLI menus from user-defined .json files and
+- executing leaf menu items by using user-defined action handlers
+
+Usage: ./main.py <json menu> <handlers module>
+e.g. ./main.py example/animals.json example.animals_handlers
+
